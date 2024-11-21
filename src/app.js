@@ -1,7 +1,6 @@
 import express from 'express';
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
-import e from 'cors';
 
 //Setting up server
 const app = express();
@@ -13,10 +12,17 @@ var corsOptions = {
     credendials: true
   }
 app.use(cors(corsOptions))
+app.use(express.json())
 app.use(cookieParser())
-app.use(express.json({limit:"16kb"}))
 app.use(express.static("public"))
 app.use(express.urlencoded({extended:true, limit:"16kb"}))
+
+//routes import
+import router from './routers/users.routes.js';
+
+
+//routes declaration
+app.use("/api/v1/users", router)
 
 
 export {app}

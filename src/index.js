@@ -3,7 +3,7 @@ import connectDB from "./db/index.js";
 import { app } from "./app.js";
 
 //Loading environment variables
-dotenv.config({path:'./env'})
+dotenv.config({path:'./.env'})
 
 connectDB()
 .then(()=>{
@@ -12,6 +12,7 @@ connectDB()
         throw err;
     })
     app.listen(process.env.PORT || 8000, ()=>{
+
         console.log(`Server is Up and Running on PORT ${process.env.PORT}....`)
     })
 })
