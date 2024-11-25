@@ -20,11 +20,13 @@ app.use(express.urlencoded({extended:true, limit:"16kb"}))
 //routes import
 import router from './routers/users.routes.js';
 import subscriptionRouter from "./routers/subscription.router.js"
+import videoRouter from './routers/video.routes.js';
 
 
 //routes declaration
 app.use("/api/v1/users", router)
 app.use("/api/v1/subscriptions", subscriptionRouter)
+app.use("/api/v1/videos", videoRouter)
 
 
 export {app}
